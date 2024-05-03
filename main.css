@@ -1,0 +1,398 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+html, body {
+    height: 100%;
+}
+
+
+
+h3 {
+    text-align:center;
+    color: white;
+}
+
+.topColumn1{
+    float: left;
+    width: 46%;
+    margin-left: 20px;
+    margin-top: 20px;
+
+
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+    /* box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%); */
+  }
+
+  .topColumn2{
+    float: left;
+    width: 54%;
+    margin-left: 5px;
+    margin-top: 20px;
+
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+    }
+
+  .columns {
+    /* height: 50%; */
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+  }
+  
+  /* Stops the float property from affecting content after the columns */
+  .columns:after {
+    content: "";
+    display: flex;
+    flex-direction: row;
+    /* clear: both; */
+    /* height: 50%; */
+  }
+
+  .columns-down{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .bottomColumn1{
+      float: left;
+      margin-left: 20px;
+      margin-top: 20px;
+
+      /* width: 50%; */
+      /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  }
+  .bottomColumn2{
+    float: left;
+    /* padding: 18px; */
+    box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%);
+    margin-left: 89px;
+    margin-top: 20px;
+
+    width: 22%;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+}
+.bottomColumn3 {
+  float: left;
+  width: 26%;
+  height: 463px;
+  float: left;
+  margin-top: 20px;
+
+  margin-left: 5px;
+    width: 22%;
+    /* width: fit-content; */
+    height: 463px;
+    box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%);
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+}
+  #chart{
+    text-align: center;
+    padding-top: 50px;
+  }
+  .arc text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+  }
+  
+  .pieBox{
+      display: inline-block;
+      height: auto;
+  }
+  
+  #mainTooltip {
+      position: absolute;
+      min-width :90px;
+      height: 40px;
+      padding: 0 25px 25px 25px; 
+      background-color: rgba(0,0,0,0.9);
+      pointer-events: none;
+      fill: #fff;
+      color: #fff; 
+      text-anchor: middle;
+      text-align: center;
+      font-weight: bold;
+      z-index: 9999;
+  }
+  #mainTooltip:before {
+      border: solid;
+      border-color: rgba(0,0,0,0.9) transparent;
+      border-width: 10px 10px 0 10px;
+      top: 100%;
+      content: "";
+      left: 20%;
+      position: absolute;
+      z-index: 99;
+  }
+  #mainTooltip.hidden {
+      display: none;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+}
+
+/* Add shadow effect to chart. If you don't like it, get rid of it. */
+svg {
+    -webkit-filter: drop-shadow( 0px 3px 3px rgba(0,0,0,.3) );
+    filter: drop-shadow( 0px 3px 3px rgba(0,0,0,.25) );
+}
+
+/*Styling for the lines connecting the labels to the slices*/
+polyline{
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+
+/* Make the percentage on the text labels bold*/
+.labelName tspan {
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* In biology we generally italicise species names. */
+.labelName {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+body {
+	font: 11px sans-serif;
+	background-color: #010114;
+  color: white;
+}
+        
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:20px;
+	top:30px;
+}
+
+.axis text {
+	font: 10px sans-serif;
+}
+
+.axis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.tooltip {
+    position: absolute;
+    background: white;
+    border: 2px solid black;
+    left: 100px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(43,43,43, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
+
+  path:hover {
+	fill-opacity: .7;
+}
+
+.background path {
+    fill: none;
+    stroke: #020a24;
+    shape-rendering: crispEdges;
+  }
+  
+  .foreground path {
+    fill: none;
+    stroke: steelblue;
+  }
+  
+  .brush .extent {
+    fill-opacity: .3;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+  }
+  
+  .axis line,
+  .axis path {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+  }
+  
+  .axis text {
+    fill:white;
+    /* text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff; */
+    cursor: move;
+  }
+
+  #geoHeadingText, #pcpHeadingText, #bubbleChartText, #pieHeadingText{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 10px;
+  }
+
+  #barHeadingText, #textHeadingText{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+
+  .line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+
+.bubbles {
+  stroke-width: 1px;
+  stroke: black;
+  opacity: .8
+}
+.bubbles:hover {
+  stroke: black;
+}
+
+.ttip {
+  position: relative;
+  display: inline-block;
+  margin-left: 500px;
+  /* border-bottom: 1px dotted black; */
+}
+
+.ttip .ttext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.ttip:hover .ttext {
+  visibility: visible;
+}
+
+.card {
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  padding-right: 10px;
+  padding-left: 10px;
+  transition: 0.3s; */
+      /* box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px 2px, rgb(0 0 0 / 30%) 0px 30px 60px -30px, rgb(10 37 64 / 35%) 0px -2px 6px 0px inset; */
+      padding-right: 10px;
+      padding-left: 10px;
+      /* transition: 0.3s; */
+      box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%);
+      margin-left: 5px;
+      z-index: 23px;
+      /* z-index: 1000; */
+      width: fit-content;
+      background-color: #020a24;
+}
+
+/* .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+} */
+
+.textCard {
+      /* box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px 2px, rgb(0 0 0 / 30%) 0px 30px 60px -30px, rgb(10 37 64 / 35%) 0px -2px 6px 0px inset; */
+      padding-right: 99px;
+      padding-left: 69px;
+      /* transition: 0.3s; */
+      box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%);
+      /* margin-left: 5px; */
+      z-index: 23px;
+      /* z-index: 1000; */
+      width: fit-content;
+      height: 490px;
+      background-color: #020a24;
+      text-align: center;
+}
+
+h4{
+  text-align: center;
+  font-size: 20px;
+
+}
+
+
+
+
+h3 {
+  /* font-size: 6em;
+  font-weight: 500; */
+  /* color: #222; */
+  /* letter-spacing: 5px; */
+  cursor: pointer;
+  /* text-transform: uppercase; */
+  /* transition: 0.5s; */
+}
+
+#deathsValue, #airQualityValue, #UnemployedValue, #UninsuredValue {
+  font-size: 40px;
+  text-align: center;
+}
+
+#cityName {
+  font-size: 40px;
+  padding-left: 20px;
+}
+
+h3:hover {
+  text-shadow: 0 0 5px #660708,
+              0 0 25px #660708,
+              0 0 50px #660708,
+              0 0 100px #660708;
+}
+
+.axisWhite line{
+  stroke: white;
+}
+
+.axisWhite path{
+  stroke: white;
+}
+
+.axisWhite text{
+  fill: white;
+} 
+
+/* Animation */
+/* .anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+} */
+
+
